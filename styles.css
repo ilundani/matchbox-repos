@@ -1,121 +1,200 @@
-body{
 
-    background-color: #F1EEEA;
+body {
+  background-color: #F1EEEA;
+  font-family: "Gamja Flower", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  margin: 0;
+  padding: 0;
 }
 
-.gamja-flower-regular {
-    font-family: "Gamja Flower", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-
-  }  
 
 .master-container {
-
-    background-color: white;
-    min-height: 100vh;
-    grid-template-columns: 1fr 2px 1fr;
-    gap: 3px;
-    padding: 10px;
-    display: flex; justify-content: center;
-    align-items: flex-start;
-    font-family: "Gamja Flower", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-
+  background-color: white;
+  min-height: 100vh;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-family: "Gamja Flower", sans-serif;
 }
+
+
 .box {
-    display: inline-block;
-    vertical-align: top;
-    background-color: lightblue;
-    margin: 10px 0;
-    width: 80%;  
-    border-radius: 8px;
+  background-color: lightblue;
+  margin: 10px 0;  
+  width: 100%;
+  border-radius: 8px; 
+  overflow: auto;
 }
 
 
 .box1 {
-    background-color: #F1EEEA;
-    text-align: center;
-    padding: 20px;
-    margin-bottom: 5px;
+  background-color: #F1EEEA;
+  text-align: center;
+  padding: 20px;
+  margin-bottom: 5px;
+  overflow-y: scroll;
+}
 
-      
+.box1 img {
+  margin-bottom: 15px; 
+  width: 100%;  
+  height: auto; 
 }
 
 .box2 {
-    background-color: #E88679;
-    color: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-
-    
-
+  background-color: #E88679;
+  color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  overflow-y: scroll;
+  margin-bottom: 5px;
+  width: 80%;
 }
+
+
 .divider {
-    width: 7px;  
-    background-color: #ffffff;  
-    height: 100%; }
+  width: 7px;
+  background-color: #ffffff;
+  height: 100%;
+}
 
-    .flip-container {
-        perspective: 1000px; 
-        display: flex;
-  justify-content: center; 
-  align-items: center; 
+
+.flip-container {
+  perspective: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 300px;
-      }
-      
-      .flip-card {
-        width: 50%; 
-        height: 50%;
-        position: relative;
-        transform-style: preserve-3d;
-        transition: transform 0.6s; 
-        transform-origin: center;
+}
 
-      }
-      
-      .flip-container:hover .flip-card {
-        transform: rotatex(180deg); 
-      }
-      
-      .flip-card img {
-        width: 100%; 
-        height: 100%; 
-        position: absolute; 
-        backface-visibility: hidden; 
-        top: 0;
-        left: 0;
-      }
-      
-      .back {
-        
-        transform: rotatex(180deg); 
-      }
+.flip-card {
+  width: 50%;
+  height: 50%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+  transform-origin: center;
+}
 
-      .mybutton{
-        display: block;
-            margin: 40px auto;  
-            padding: 15px 30px;  
-            font-size: 18px;  
-            background-color: #a38c68; 
-            font-family: "Gamja Flower", sans-serif;
-            color: white;  
-            border: 3px solid white;  
-            border-radius: 5px;  
-            cursor: pointer;  
-            transition: background-color 0.3s, border-color 0.3s;
-      }
+.flip-container:hover .flip-card {
+  transform: rotateX(180deg);
+}
 
-      .mybutton:hover {
-        background-color: #D57F62;  
-        border-color: #D57F62;
-      }
+.flip-card img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  top: 0;
+  left: 0;
+}
 
-      
-      
+.flip-card .back {
+  transform: rotateX(180deg);
+}
 
-    
-      
+
+.mybutton {
+  display: block;
+  margin: 40px auto;
+  padding: 15px 30px;
+  font-size: 18px;
+  background-color: #a38c68;
+  color: white;
+  border: 3px solid white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+  font-family: "Gamja Flower", sans-serif;
+}
+
+.mybutton:hover {
+  background-color: #0a84e7;
+  border-color: #ffffff;
+}
+
+
+@keyframes shake {
+  0% {
+      transform: translateX(0);
+  }
+  25% {
+      transform: translateX(-5px);
+  }
+  50% {
+      transform: translateX(5px);
+  }
+  75% {
+      transform: translateX(-5px);
+  }
+  100% {
+      transform: translateX(0);
+  }
+}
+
+.shake-on-hover {
+  transition: transform 0.2s ease;
+}
+
+.shake-on-hover:hover {
+  animation: shake 0.5s ease-in-out;
+}
+
+
+.img-with-text {
+  text-align: justify;
+  width: 40%;
+  margin: 0 auto;
+}
+
+.img-with-text img {
+  display: block;
+  margin: 0 auto;
+}
+
+
+@media (max-width: 768px) {
+  .master-container {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .box2 {
+      width: 90%;
+  }
+
+  .img-with-text {
+      width: 100%;
+  }
+
+  .shake-on-hover {
+      width: 50%;
+  }
+}
+
+
+.box1, .box2 {
+  max-height: 1000px; 
+  overflow-y: auto;   
+  padding: 20px;
+  border-radius: 8px;
+ 
+}
+.box1::-webkit-scrollbar, .box2::-webkit-scrollbar {
+  width: 8px;
+}
+
+.box1::-webkit-scrollbar-thumb, .box2::-webkit-scrollbar-thumb {
+  background-color: #0a84e7;
+  border-radius: 10px;
+}
+
+.box1::-webkit-scrollbar-track, .box2::-webkit-scrollbar-track {
+  background: #f3faff;
+}
+
+
 
 
